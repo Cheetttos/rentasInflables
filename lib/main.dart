@@ -3,8 +3,10 @@ import 'package:rentas/screens/agregar_renta_screen.dart';
 import 'package:rentas/screens/eventos_screen.dart';
 import 'package:rentas/screens/historial_rentas_screen.dart'; // Importar la pantalla HistorialRentasScreen
 import 'package:rentas/screens/detalle_renta_screen.dart';
+import 'package:rentas/screens/login_screen.dart';
 import 'package:rentas/screens/navigation_bar.dart'; // Importar la pantalla DetalleRentaScreen
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:rentas/screens/register_screen.dart';
 import 'package:rentas/settings/notification_helper.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
@@ -24,19 +26,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Renta de inflables',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: NavigationBarApp(),
-      //initialRoute: '/eventos', // Ruta inicial
+      home: const LoginScreen(),
+      
       routes: {
-        '/nav': (context) => NavigationBarApp(),
-        '/eventos': (context) => EventosScreen(),
-        '/historial': (context) => HistorialRentasScreen(), // Ruta para la pantalla de historial de rentas
-        '/detalleR': (context) => DetalleRentaScreen(), // Ruta para la pantalla de detalle de renta
-        '/agregarRenta': (context)=> AgregarRentaScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/dash': (context) => const NavigationBarApp(),
+        '/eventos': (context) => const EventosScreen(),
+        '/historial': (context) =>
+            HistorialRentasScreen(), // Ruta para la pantalla de historial de rentas
+        '/detalleR': (context) =>
+            const DetalleRentaScreen(), // Ruta para la pantalla de detalle de renta
+        '/agregarRenta': (context) => const AgregarRentaScreen(),
+        '/register': (context) => const RegisterScreen()
       },
     );
   }
